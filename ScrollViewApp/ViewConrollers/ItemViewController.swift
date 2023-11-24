@@ -99,9 +99,8 @@ final class ItemViewController: UIViewController, UINavigationControllerDelegate
         atributesString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: range)
         compatibleLabel.textColor = .gray
         compatibleLabel.attributedText = atributesString
-        compatibleLabel.font = UIFont.systemFont(ofSize: 13)
+        compatibleLabel.font = UIFont.systemFont(ofSize: 12)
         compatibleLabel.textAlignment = .left
-        compatibleLabel.sizeToFit()
         
         self.view.addSubview(compatibleLabel)
         
@@ -110,7 +109,7 @@ final class ItemViewController: UIViewController, UINavigationControllerDelegate
         NSLayoutConstraint.activate([
             compatibleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             compatibleLabel.topAnchor.constraint(equalTo: colorButtonsView.bottomAnchor, constant: 15),
-            compatibleLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.57),
+            compatibleLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.6),
             compatibleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05)
         ])
         
