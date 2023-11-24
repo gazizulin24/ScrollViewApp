@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ForYouViewController: UIViewController {
+final class ForYouViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class ForYouViewController: UIViewController {
     }
     
 
-    func createTitleLabel() {
+    private func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.text = "Страница Для вас пока недоступна "
         titleLabel.font = UIFont.systemFont(ofSize: 20)

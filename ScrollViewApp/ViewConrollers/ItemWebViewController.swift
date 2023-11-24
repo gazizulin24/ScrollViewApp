@@ -8,20 +8,21 @@
 import UIKit
 import WebKit
 
-class ItemWebViewController: UIViewController {
+final class ItemWebViewController: UIViewController {
     
     var link = "https://apple.com"
     
-    let webView = WKWebView()
+    private let webView = WKWebView()
     
-    let toolBar = UIToolbar()
+    private let toolBar = UIToolbar()
     
-    let backButtonItem = UIBarButtonItem(systemItem: .rewind)
-    let forwardButtonItem = UIBarButtonItem(systemItem: .fastForward)
-    let spacer1 = UIBarButtonItem(systemItem: .flexibleSpace)
-    let spacer2 = UIBarButtonItem(systemItem: .flexibleSpace)
-    let refreshButtonItem = UIBarButtonItem(systemItem: .refresh)
-    let shareButtonitem = UIBarButtonItem(systemItem: .action)
+    // Toolbar Items
+    private let backButtonItem = UIBarButtonItem(systemItem: .rewind)
+    private let forwardButtonItem = UIBarButtonItem(systemItem: .fastForward)
+    private let spacer1 = UIBarButtonItem(systemItem: .flexibleSpace)
+    private let spacer2 = UIBarButtonItem(systemItem: .flexibleSpace)
+    private let refreshButtonItem = UIBarButtonItem(systemItem: .refresh)
+    private let shareButtonitem = UIBarButtonItem(systemItem: .action)
     
 
     override func viewDidLoad() {
@@ -30,18 +31,23 @@ class ItemWebViewController: UIViewController {
         createWebView()
         createToolBar()
         loadRequest()
+        
     }
     
     // MARK: - Create Toolbar
-    func createToolBar(){
+    private func createToolBar(){
         self.view.addSubview(toolBar)
         
+        // Toolbar Items Actions
         backButtonItem.action = #selector(goBackAction)
         forwardButtonItem.action = #selector(goForwardAction)
         refreshButtonItem.action = #selector(refreshAction)
         shareButtonitem.action = #selector(shareAction)
         
+        // Toolbar Items
         toolBar.items = [backButtonItem, forwardButtonItem, spacer1, refreshButtonItem,spacer2, shareButtonitem]
+        
+        // Toolbar Layout
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             toolBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -49,6 +55,7 @@ class ItemWebViewController: UIViewController {
             toolBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             toolBar.topAnchor.constraint(equalTo: webView.bottomAnchor)
         ])
+        
     }
     
     @objc func shareAction(){
@@ -72,9 +79,10 @@ class ItemWebViewController: UIViewController {
     }
     
     // MARK: - Create WebView
-    func createWebView(){
+    private func createWebView(){
         self.view.addSubview(webView)
         
+        // Set delegate
         webView.navigationDelegate = self
         
         // Layout
@@ -88,7 +96,7 @@ class ItemWebViewController: UIViewController {
     }
     
     // MARK: - Load Request
-    func loadRequest(){
+    private func loadRequest(){
         if let url = URL(string: link){
             let request = URLRequest(url: url)
             webView.load(request)
@@ -97,24 +105,33 @@ class ItemWebViewController: UIViewController {
     
 }
 
+// MARK: - WebView Delegate
 extension ItemWebViewController:WKNavigationDelegate{
+    
+    // MARK: - Did Start Loading Page
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        backButtonItem.isEnabled = true
+        
+        backButtonItem.isEnabled = false
         forwardButtonItem.isEnabled = false
         refreshButtonItem.isEnabled = false
         shareButtonitem.isEnabled = false
+        
     }
     
+    // MARK: - Did finish Loading Page
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
         refreshButtonItem.isEnabled = true
         shareButtonitem.isEnabled = true
+        
         if webView.canGoBack{
             backButtonItem.isEnabled = true
-        } else{
-            backButtonItem.isEnabled = false
         }
+        
         if webView.canGoForward{
             forwardButtonItem.isEnabled = true
         }
+        
     }
+    
 }

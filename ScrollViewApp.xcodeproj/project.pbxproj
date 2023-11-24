@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB0824122B10B52A00509387 /* ItemWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0824112B10B52A00509387 /* ItemWebViewController.swift */; };
+		AB0824352B11187E00509387 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0824342B11187E00509387 /* LaunchViewController.swift */; };
 		AB43EE942B0E0E680054E9FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE932B0E0E680054E9FB /* AppDelegate.swift */; };
 		AB43EE962B0E0E680054E9FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE952B0E0E680054E9FB /* SceneDelegate.swift */; };
 		AB43EE982B0E0E680054E9FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE972B0E0E680054E9FB /* SearchViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		AB0824112B10B52A00509387 /* ItemWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWebViewController.swift; sourceTree = "<group>"; };
+		AB0824342B11187E00509387 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AB43EE902B0E0E680054E9FB /* ScrollViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB43EE932B0E0E680054E9FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB43EE952B0E0E680054E9FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0824332B11180500509387 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AB43EEB02B0F616D0054E9FB /* CartViewController.swift */,
+				AB43EEAA2B0E1F6B0054E9FB /* BuyViewController.swift */,
+				AB43EEAE2B0F61490054E9FB /* ForYouViewController.swift */,
+				AB43EE972B0E0E680054E9FB /* SearchViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		AB43EE872B0E0E680054E9FB = {
 			isa = PBXGroup;
 			children = (
@@ -83,12 +96,10 @@
 		AB43EEA72B0E1F210054E9FB /* ViewConrollers */ = {
 			isa = PBXGroup;
 			children = (
-				AB43EE972B0E0E680054E9FB /* SearchViewController.swift */,
+				AB0824332B11180500509387 /* TabBar */,
 				AB43EEA82B0E1F620054E9FB /* ItemViewController.swift */,
-				AB43EEAA2B0E1F6B0054E9FB /* BuyViewController.swift */,
-				AB43EEAE2B0F61490054E9FB /* ForYouViewController.swift */,
-				AB43EEB02B0F616D0054E9FB /* CartViewController.swift */,
 				AB0824112B10B52A00509387 /* ItemWebViewController.swift */,
+				AB0824342B11187E00509387 /* LaunchViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB43EE982B0E0E680054E9FB /* SearchViewController.swift in Sources */,
+				AB0824352B11187E00509387 /* LaunchViewController.swift in Sources */,
 				AB43EEA92B0E1F620054E9FB /* ItemViewController.swift in Sources */,
 				AB43EE942B0E0E680054E9FB /* AppDelegate.swift in Sources */,
 				AB43EEAF2B0F61490054E9FB /* ForYouViewController.swift in Sources */,

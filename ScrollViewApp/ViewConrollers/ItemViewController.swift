@@ -7,42 +7,42 @@
 
 import UIKit
 
-class ItemViewController: UIViewController, UINavigationControllerDelegate {
+final class ItemViewController: UIViewController, UINavigationControllerDelegate {
     // Item
     var item:Item = Item(title: "Item", subtitle: "", price: "", images: [], colors: [], isCompatible: true, link: "")
     
     // Title
-    let titleLabel = UILabel()
+    private let titleLabel = UILabel()
     
     // Price
-    let priceLabel = UILabel()
+    private let priceLabel = UILabel()
     
     // Description
-    let descriptionLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
     // "Compatible"
-    let compatibleLabel = UILabel()
-    let compatibleImage = UIImageView()
+    private let compatibleLabel = UILabel()
+    private let compatibleImage = UIImageView()
     
     // Delivery
-    let deliveryTodayLabel = UILabel()
-    let deliveryDateLabel = UILabel()
-    let deliveryLocationLabel = UILabel()
-    let deliveryImageView = UIImageView()
+    private let deliveryTodayLabel = UILabel()
+    private let deliveryDateLabel = UILabel()
+    private let deliveryLocationLabel = UILabel()
+    private let deliveryImageView = UIImageView()
     
     // Scroll View
-    let imagesScroll = UIScrollView()
+    private let imagesScroll = UIScrollView()
     
     // Like/Unlike Images
-    let unlikedItemImage = UIImage(systemName: "heart")
-    let likedItemImage = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+    private let unlikedItemImage = UIImage(systemName: "heart")
+    private let likedItemImage = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
     
     // Color buttons
-    let colorButtonsView = UIView()
-    var colorButtons:[UIButton] = []
+    private let colorButtonsView = UIView()
+    private var colorButtons:[UIButton] = []
     
     // Buy
-    let buyButton = UIButton()
+    private let buyButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Buy Button
-    func createBuyButton(){
+    private func createBuyButton(){
         // Style
         buyButton.configuration = .filled()
         buyButton.setTitle("Добавить в корзину", for: .normal)
@@ -82,7 +82,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - "Compatible with" info
-    func createCompatibleWith(){
+    private func createCompatibleWith(){
         // Label Style
         let colorText = "MacBook Pro - Timur"
         var whiteWords = "Совместимо с MacBook Pro - Timur"
@@ -134,7 +134,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Navigation Bar
-    func configNavBar(){
+    private func configNavBar(){
         // NavBar Style
         if let navBar = self.navigationController?.navigationBar{
             navBar.prefersLargeTitles = false
@@ -166,7 +166,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Colors Buttons
-    func createColorsButtons(){
+    private func createColorsButtons(){
         // Colors Buttons View Layout
         colorButtonsView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(colorButtonsView)
@@ -187,7 +187,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Color Button
-    func createColorButton(_ view:UIView, _ color:UIColor, _ num:Int){
+    private func createColorButton(_ view:UIView, _ color:UIColor, _ num:Int){
         // Constant button size
         let circleSize = CGFloat(40)
         
@@ -228,7 +228,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Item Description Label
-    func createDescriptionLabel(){
+    private func createDescriptionLabel(){
         // Style
         descriptionLabel.text = item.subtitle
         descriptionLabel.font = UIFont.systemFont(ofSize: 13)
@@ -249,7 +249,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Scroll View
-    func createImagesScroll(){
+    private func createImagesScroll(){
         // Style
         imagesScroll.isPagingEnabled = true
         imagesScroll.contentSize = CGSize(width: self.view.bounds.width * CGFloat(item.images.count), height: self.view.bounds.height * 0.3)
@@ -277,7 +277,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Adding Images To Scroll View
-    func fillImages(_ scroll:UIScrollView, _ images:[UIImage]){
+    private func fillImages(_ scroll:UIScrollView, _ images:[UIImage]){
         for (num, image) in images.enumerated(){
             
             let imageView = UIImageView(image: image)
@@ -299,7 +299,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Item Price Label
-    func createPriceLabel(){
+    private func createPriceLabel(){
         // Style
         priceLabel.text = item.price
         priceLabel.font = UIFont.systemFont(ofSize: 12)
@@ -319,7 +319,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Item Title Label
-    func createTitleLabel() {
+    private func createTitleLabel() {
         // Style
         titleLabel.text = item.title
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
@@ -339,7 +339,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Delivery Info
-    func createDeliveryInfo(){
+    private func createDeliveryInfo(){
         // 1st Label
         deliveryTodayLabel.text = "Заказ сегодня в течение дня, доставка:"
         deliveryTodayLabel.textAlignment = .left
@@ -408,7 +408,7 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     }
 
     // MARK: - Костыльная функция изменения цвета навбара выглядит не оч но можно добавить во viewDidAppear
-    func navBarColor(){
+    private func navBarColor(){
         if let navBar = self.navigationController?.navigationBar{
             navBar.backgroundColor = UIColor(red: 0.34, green: 0.3, blue: 0.3, alpha: 0.3)
             let statusBarView = UIView(frame: view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)

@@ -1,25 +1,24 @@
 //
-//  OtherViewController.swift
+//  CartViewController.swift
 //  ScrollViewApp
 //
-//  Created by Timur Gazizulin on 22.11.23.
+//  Created by Timur Gazizulin on 23.11.23.
 //
 
 import UIKit
 
-class BuyViewController: UIViewController {
+final class CartViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         createTitleLabel()
     }
     
 
-    func createTitleLabel() {
+    private func createTitleLabel() {
         let titleLabel = UILabel()
-        titleLabel.text = "Страница Купить пока недоступна "
+        titleLabel.text = "Страница Корзина пока недоступна "
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .white
@@ -27,6 +26,5 @@ class BuyViewController: UIViewController {
         titleLabel.center = self.view.center
         self.view.addSubview(titleLabel)
     }
-    
 
 }

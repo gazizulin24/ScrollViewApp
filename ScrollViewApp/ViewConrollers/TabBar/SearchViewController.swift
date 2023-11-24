@@ -7,20 +7,20 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
+final class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // Scroll View
-    var myScrollView = UIScrollView()
+    private var myScrollView = UIScrollView()
     
     // "Search" Text Field
-    let searchTextField = UITextField()
+    private let searchTextField = UITextField()
     
     // "Recently Watched"
-    let recentlyWatchedView = UIView()
-    let recentlyWatchedLabel = UILabel()
-    let recentlyWatchedClearButton = UIButton(type:.system)
-    var recentlyWatchedCards:[UIView] = []
-    let recentlyWatchedData = [
+    private let recentlyWatchedView = UIView()
+    private let recentlyWatchedLabel = UILabel()
+    private let recentlyWatchedClearButton = UIButton(type:.system)
+    private var recentlyWatchedCards:[UIView] = []
+    private let recentlyWatchedData = [
                                Item(title: "IPhone 15 Pro", subtitle: "Смартфон Apple IPhone 15 Pro 128GB", price: "2499 BYN", images: [UIImage(named: "iphone1")!, UIImage(named: "iphone2")!, UIImage(named: "iphone3")!], colors: [UIColor.gray, UIColor.white, UIColor.darkGray], isCompatible: true, link: "https://www.apple.com/iphone-15-pro/"),
                                Item(title: "IPad Air M1", subtitle: "Планшет IPad Air 5TH GEN M1 Chip 256 GB", price: "2799 BYN", images: [UIImage(named: "ipad1")!, UIImage(named: "ipad2")!], colors: [UIColor.darkGray, UIColor.cyan, UIColor.magenta], isCompatible: true,link: "https://www.apple.com/ipad-air/"),
                                Item(title: "IPhone 13 Silicon Case", subtitle: "Чехол для IPhone 13 Silicon Case", price: "59 BYN", images: [UIImage(named: "chehol")!], colors: [UIColor.white], isCompatible: true,link: "https://www.apple.com/shop/product/MT203ZM/A/iphone-15-clear-case-with-magsafe?fnode=0662b6a20353c1ad25f5681436e5713f0cca30b9f068b5c01173ca822002b6f7e4367f4f0845a187510da4f25aff79dcef43a4001762fad028d47365d96e6f7b77ac08d0c2bd24fef55ca36d2a0a818f8a80f50ac136c37b643eb5b694af289b"),
@@ -29,7 +29,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     ]
     
     // "Suggestions" Data
-    let otherVariantsData = ["Airpods", "AppleCare", "Beats", "Сравните модели IPhone"]
+    private let otherVariantsData = ["Airpods", "AppleCare", "Beats", "Сравните модели IPhone"]
     
     override func viewWillAppear(_ animated:Bool){
         super.viewWillAppear(animated)
@@ -47,7 +47,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Recently Watched Scroll View
-    func configScrollView(){
+    private func configScrollView(){
         // Settup
         let myScrollWidth = Double(self.view.bounds.size.width) * 0.33 * Double(recentlyWatchedData.count) + Double((recentlyWatchedData.count-1)*10)
         myScrollView.contentSize = CGSize(width: myScrollWidth, height: self.view.bounds.size.height * 0.2)
@@ -72,7 +72,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Item Card In Recently Watched Scroll View
-    func createCard(_ data:Any, _ view:UIScrollView, _ num:Int){
+    private func createCard(_ data:Any, _ view:UIScrollView, _ num:Int){
         // Item
         let item = recentlyWatchedData[num]
         
@@ -160,7 +160,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Recently watched (Label & Button)
-    func createRecentlyWatched(){
+    private func createRecentlyWatched(){
         // View Layout
         self.view.addSubview(recentlyWatchedView)
         recentlyWatchedView.translatesAutoresizingMaskIntoConstraints = false
@@ -203,7 +203,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - "Search" Text Field
-    func setupSearchTextField(){
+    private func setupSearchTextField(){
         // Placeholder
         let placeholderText = "Поиск по продуктам и магазинам"
         let attributes: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor.lightGray ]
@@ -242,7 +242,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     //MARK: - Navigation Bar
-    func setupNavigationBar(){
+    private func setupNavigationBar(){
         // Title
         self.title = "Поиск"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -254,7 +254,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Things under Scroll View
-    func configOther(){
+    private func configOther(){
         // Label Style
         let otherLabel = UILabel()
         otherLabel.textColor = .white
@@ -281,7 +281,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Create Suggestion
-    func createSuggestion(_ nameRequest: String, _ otherLabel: UILabel, _ numberPosition: Int) {
+    private func createSuggestion(_ nameRequest: String, _ otherLabel: UILabel, _ numberPosition: Int) {
         // Text field
         let textField = UITextField()
         textField.textColor = .white
@@ -349,6 +349,7 @@ extension SearchViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+        
     }
     
 }
