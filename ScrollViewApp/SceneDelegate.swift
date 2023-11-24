@@ -13,10 +13,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // MARK: - Tab Bar
+        
+        // "Buy" Navigation Controller
+        let buyNC = UINavigationController(rootViewController: BuyViewController())
+        buyNC.tabBarItem = UITabBarItem(title: "Купить", image: UIImage(systemName: "macbook.and.iphone"), tag: 0)
+        
+        // "For you" Navigation Controller
+        let forYouNC = UINavigationController(rootViewController: ForYouViewController())
+        forYouNC.tabBarItem = UITabBarItem(title: "Для вас", image: UIImage(systemName: "person.circle"), tag: 1)
+        
+        // "Search" Navigation Controller
+        let searchNC = UINavigationController(rootViewController: SearchViewController())
+        searchNC.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 2)
+        
+        // "Cart" Navigation Controller
+        let cartNC = UINavigationController(rootViewController: CartViewController())
+        cartNC.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(systemName: "bag"), tag: 3)
+        
+        // Tab Bar Config
+        let tb = UITabBarController()
+        tb.viewControllers = [buyNC, forYouNC, searchNC, cartNC]
+        tb.tabBar.backgroundColor = UIColor(red: 0.34, green: 0.3, blue: 0.3, alpha: 0.23)
+        
+        
+        // MARK: - Window config
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        
+        window.rootViewController = tb
+        window.backgroundColor = .black
+        window.makeKeyAndVisible()
+        
+        self.window = window
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
