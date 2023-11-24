@@ -16,4 +16,5 @@ struct Item{
     let colors:[UIColor]
     var isLiked:Bool = false
     let isCompatible:Bool
+    let link:String
 }

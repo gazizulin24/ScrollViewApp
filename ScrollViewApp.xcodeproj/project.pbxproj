@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0824122B10B52A00509387 /* ItemWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0824112B10B52A00509387 /* ItemWebViewController.swift */; };
 		AB43EE942B0E0E680054E9FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE932B0E0E680054E9FB /* AppDelegate.swift */; };
 		AB43EE962B0E0E680054E9FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE952B0E0E680054E9FB /* SceneDelegate.swift */; };
 		AB43EE982B0E0E680054E9FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43EE972B0E0E680054E9FB /* SearchViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB0824112B10B52A00509387 /* ItemWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWebViewController.swift; sourceTree = "<group>"; };
 		AB43EE902B0E0E680054E9FB /* ScrollViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB43EE932B0E0E680054E9FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB43EE952B0E0E680054E9FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				AB43EEAA2B0E1F6B0054E9FB /* BuyViewController.swift */,
 				AB43EEAE2B0F61490054E9FB /* ForYouViewController.swift */,
 				AB43EEB02B0F616D0054E9FB /* CartViewController.swift */,
+				AB0824112B10B52A00509387 /* ItemWebViewController.swift */,
 			);
 			path = ViewConrollers;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				AB43EEA92B0E1F620054E9FB /* ItemViewController.swift in Sources */,
 				AB43EE942B0E0E680054E9FB /* AppDelegate.swift in Sources */,
 				AB43EEAF2B0F61490054E9FB /* ForYouViewController.swift in Sources */,
+				AB0824122B10B52A00509387 /* ItemWebViewController.swift in Sources */,
 				AB43EEB12B0F616D0054E9FB /* CartViewController.swift in Sources */,
 				AB43EE962B0E0E680054E9FB /* SceneDelegate.swift in Sources */,
 				AB43EEAD2B0E7E500054E9FB /* Item.swift in Sources */,

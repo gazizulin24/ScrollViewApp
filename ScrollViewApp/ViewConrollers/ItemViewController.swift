@@ -9,7 +9,7 @@ import UIKit
 
 class ItemViewController: UIViewController, UINavigationControllerDelegate {
     // Item
-    var item:Item = Item(title: "Item", subtitle: "", price: "", images: [], colors: [], isCompatible: true)
+    var item:Item = Item(title: "Item", subtitle: "", price: "", images: [], colors: [], isCompatible: true, link: "")
     
     // Title
     let titleLabel = UILabel()
@@ -259,6 +259,10 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
         
         self.view.addSubview(imagesScroll)
         
+        // Gesture To Open WebView
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openWebView(_:)))
+        imagesScroll.addGestureRecognizer(gesture)
+        
         // Add Images
         fillImages(imagesScroll, item.images)
         
@@ -275,13 +279,23 @@ class ItemViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - Adding Images To Scroll View
     func fillImages(_ scroll:UIScrollView, _ images:[UIImage]){
         for (num, image) in images.enumerated(){
+            
             let imageView = UIImageView(image: image)
             imageView.contentMode = .scaleAspectFit
             
             imageView.frame = CGRect(x: self.view.bounds.width * CGFloat(num), y: 0, width: self.view.bounds.width, height: self.view.bounds.height * 0.3)
+            
+            
             scroll.addSubview(imageView)
         }
         
+    }
+    
+    //MARK: - Open WebView
+    @objc func openWebView(_ sender: UITapGestureRecognizer){
+        let vc = ItemWebViewController()
+        vc.link = item.link
+        present(vc, animated: true)
     }
     
     // MARK: - Item Price Label
